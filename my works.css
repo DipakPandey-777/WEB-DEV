@@ -1,0 +1,205 @@
+/* THEME VARIABLES */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #a9bcb9;
+  --nav-item-bg: #dee8e6;
+  --nav-item-hover: #c6dbd8;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --accent: #2a2a2a;
+  --nav-item-bg: #1e1e1e;
+  --nav-item-hover: #333;
+}
+
+/* RESET & BASE STYLES */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: var(--accent);
+  height: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.portfolio {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.ulclass {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ulclass li a, .ulclass li button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--nav-item-bg);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.ulclass li a:hover, .ulclass li button:hover {
+  background-color: var(--nav-item-hover);
+}
+
+/* MENU TOGGLE (MOBILE) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+  .portfolio1 {
+    display: none;
+  }
+}
+
+
+  .ulclass {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ulclass.show {
+    display: flex;
+  }
+
+  .ulclass li, .ulclass li a, .ulclass li button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .portfolio {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+}
+/* .video-container{
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+
+.videos{
+
+} */
+
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+/* Each video box (16:9 ratio) */
+.videos {
+  flex: 1 1 300px;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Iframe fills the box */
+.videos iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Optional hover effect */
+.videos:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive: 2 per row below 992px */
+@media (max-width: 992px) {
+  .videos {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+/* Responsive: 1 per row below 768px */
+@media (max-width: 768px) {
+  .videos {
+    flex-basis: 100%;
+  }
+}
+.text{
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Dancing Script', cursive;
+}
+
+.loader {
+    border: 6px solid #f3f3f3; /* Light gray background */
+    border-top: 6px solid #3498db; /* Blue spinner color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto; /* Center horizontally */
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

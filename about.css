@@ -1,0 +1,248 @@
+/* THEME VARIABLES */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #a9bcb9;
+  --nav-item-bg: #dee8e6;
+  --nav-item-hover: #c6dbd8;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --accent: #2a2a2a;
+  --nav-item-bg: #1e1e1e;
+  --nav-item-hover: #333;
+}
+
+/* RESET & BASE STYLES */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: var(--accent);
+  height: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.portfolio {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.ulclass {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ulclass li a, .ulclass li button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--nav-item-bg);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.ulclass li a:hover, .ulclass li button:hover {
+  background-color: var(--nav-item-hover);
+}
+
+/* MENU TOGGLE (MOBILE) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+  .portfolio1 {
+    display: none;
+  }
+}
+
+
+  .ulclass {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ulclass.show {
+    display: flex;
+  }
+
+  .ulclass li, .ulclass li a, .ulclass li button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .portfolio {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+
+.about-fun span {
+  display: inline-block;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.about-fun {
+  text-align: center;
+  margin: 50px 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #ff4081;
+  user-select: none;
+}
+
+/* Responsive font size - shrinks smoothly */
+.typing {
+  font-size: clamp(1.2rem, 5vw, 2rem); /* min 1.2rem, max 2rem, scales with viewport */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff4081;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: fit-content;
+}
+
+/* Emoji inside span to not animate width */
+.typing span {
+  display: inline-block;
+  animation: none;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 20ch; } /* Adjust to text length */
+}
+
+@keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #ff4081; }
+}
+
+/* After 768px, disable typing animation and use bigger font with bounce effect */
+@media (min-width: 768px) {
+  .typing {
+    font-size: 2.5rem;
+    animation: none;
+    border-right: none;
+    width: auto;
+  }
+  .typing span {
+    animation: bounce 2s infinite;
+    cursor: default;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+/* Typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 200ch; } /* Adjust to number of characters */
+}
+
+/* Cursor blinking */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #ff4081; }
+}
+
+
+.footer-social {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.footer-social p {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.social-icons a {
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 28px;  /* average size */
+  transition: transform 0.3s ease;
+}
+
+.social-icons a i {
+  /* Colors for each icon */
+  color: inherit;
+}
+
+/* Specific icon colors */
+.social-icons a:nth-child(1) i {
+  color: #3b5998; /* Facebook blue */
+}
+
+.social-icons a:nth-child(2) i {
+  color: #e4405f; /* Instagram pink */
+}
+
+.social-icons a:nth-child(3) i {
+  color: #ff0000; /* YouTube red */
+}
+
+/* Hover effect */
+.social-icons a:hover {
+  transform: scale(1.2);
+}

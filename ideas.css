@@ -1,0 +1,183 @@
+/* THEME VARIABLES */
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #a9bcb9;
+  --nav-item-bg: #dee8e6;
+  --nav-item-hover: #c6dbd8;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --accent: #2a2a2a;
+  --nav-item-bg: #1e1e1e;
+  --nav-item-hover: #333;
+}
+
+/* RESET & BASE STYLES */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: var(--accent);
+  height: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.portfolio {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.ulclass {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ulclass li a, .ulclass li button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--nav-item-bg);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.ulclass li a:hover, .ulclass li button:hover {
+  background-color: var(--nav-item-hover);
+}
+
+/* MENU TOGGLE (MOBILE) */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text);
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+  .portfolio1 {
+    display: none;
+  }
+}
+
+
+  .ulclass {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ulclass.show {
+    display: flex;
+  }
+
+  .ulclass li, .ulclass li a, .ulclass li button {
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .portfolio {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+
+.brainstorm {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0 200px;
+}
+
+.box {
+  width: 60%;
+  background: #fff9c4; /* Soft pastel yellow like a sticky note */
+  border: 2px solid #f0e68c; /* Slightly darker yellow border */
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  padding: 30px 40px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  position: relative;
+  color: #5a4d00; /* dark yellowish text */
+}
+
+/* Add a little “folded corner” effect at top right */
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff176;
+  border-top-right-radius: 12px;
+  box-shadow: -3px 3px 5px rgba(0,0,0,0.5);
+  transform: rotate(45deg);
+  transform-origin: top right;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #fff176;
+  border-top-right-radius: 12px;
+  box-shadow: -3px 3px 5px rgba(0,0,0,0.1);
+  transform: rotate(45deg);
+  transform-origin: top right;
+}
+
+/* For screens smaller than 768px: allow shrinking and adjust width */
+@media (max-width: 767px) {
+  .brainstorm {
+    padding: 0 20px; /* less horizontal padding */
+  }
+  .box {
+    width: auto;      /* let it adjust */
+    flex-shrink: 1;   /* allow shrinking */
+    max-width: 100%;  /* prevent overflow */
+  }
+}
